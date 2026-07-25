@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --ivory:     #FBF6F0;
+  --espresso:  #2B1D18;
+  --terracotta: #C15B4A;
+  --sage:      #8A9A7E;
+  --taupe:     #B8A99A;
+  --taupe-light: #E8DDD6;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Manrope', system-ui, sans-serif;
+}
+
+/* ── Base Reset ────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--espresso);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Typography Utilities ─────────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ── Scrollbar Styling ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--taupe);
+  border-radius: 999px;
+}
+
+/* ── Swatch Pan Effect (makeup pan feel) ────────────────────────────────────── */
+.swatch-pan {
+  border-radius: 50%;
+  box-shadow:
+    inset 0 2px 6px rgba(0,0,0,0.18),
+    inset 0 1px 3px rgba(0,0,0,0.12),
+    0 2px 8px rgba(0,0,0,0.10);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  cursor: pointer;
+}
+
+.swatch-pan:hover {
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 2px 6px rgba(0,0,0,0.20),
+    inset 0 1px 3px rgba(0,0,0,0.14),
+    0 6px 18px rgba(0,0,0,0.18);
+}
+
+.swatch-pan.selected {
+  box-shadow:
+    inset 0 2px 6px rgba(0,0,0,0.22),
+    inset 0 1px 3px rgba(0,0,0,0.15),
+    0 0 0 3px #C15B4A,
+    0 4px 14px rgba(193,91,74,0.35);
+  transform: scale(1.08);
+}
+
+/* ── Cards ─────────────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid var(--taupe-light);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(43,29,24,0.06);
+}
+
+.card-hover {
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+.card-hover:hover {
+  box-shadow: 0 6px 24px rgba(43,29,24,0.10);
+  transform: translateY(-2px);
+}
+
+/* ── Sidebar Nav ────────────────────────────────────────────────────────────── */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  color: var(--espresso);
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 120ms ease, color 120ms ease;
+  text-decoration: none;
+  position: relative;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background: rgba(193,91,74,0.06);
+  color: var(--terracotta);
+}
+
+.nav-item.active {
+  background: rgba(193,91,74,0.09);
+  color: var(--terracotta);
+  border-left-color: var(--terracotta);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--terracotta);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 22px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 140ms ease, transform 100ms ease, box-shadow 140ms ease;
+  box-shadow: 0 2px 8px rgba(193,91,74,0.30);
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover {
+  background: #AD4A3A;
+  box-shadow: 0 4px 16px rgba(193,91,74,0.40);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--espresso);
+  border: 1.5px solid var(--taupe);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.btn-secondary:hover {
+  border-color: var(--terracotta);
+  background: rgba(193,91,74,0.05);
+}
+
+/* ── Eyebrow Labels ─────────────────────────────────────────────────────────── */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+.eyebrow-terracotta {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+/* ── Page Fade Transition ───────────────────────────────────────────────────── */
+.page-enter {
+  animation: pageFadeIn 180ms ease both;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Badge ──────────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.badge-sage { background: rgba(138,154,126,0.15); color: #5A6E52; }
+.badge-terracotta { background: rgba(193,91,74,0.12); color: var(--terracotta); }
+.badge-taupe { background: rgba(184,169,154,0.20); color: #7A6A60; }
+.badge-trending { background: rgba(193,91,74,0.12); color: var(--terracotta); }
+
+/* ── Stat Card Trend ─────────────────────────────────────────────────────────── */
+.trend-up   { color: var(--sage); }
+.trend-down { color: #C15B4A; }
+.trend-neutral { color: var(--taupe); }
+
+/* ── Comparison Strip ────────────────────────────────────────────────────────── */
+.comparison-strip {
+  display: flex;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* ── Input / Select ─────────────────────────────────────────────────────────── */
+input[type="text"], select {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--espresso);
+  background: #fff;
+  border: 1.5px solid var(--taupe-light);
+  border-radius: 10px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 140ms ease;
+}
+input[type="text"]:focus, select:focus {
+  border-color: var(--terracotta);
+}
