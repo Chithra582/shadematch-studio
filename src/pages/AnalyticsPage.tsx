@@ -12,7 +12,6 @@ import { TrendingUp, Award } from 'lucide-react';
 // ── Palette — no default recharts blue/green ──────────────────────────────────
 const C_TERRACOTTA = '#C15B4A';
 const C_SAGE       = '#8A9A7E';
-const C_TAUPE      = '#B8A99A';
 const C_WARM_SAND  = '#D4A882';
 
 // ── Custom Tooltip ─────────────────────────────────────────────────────────────
