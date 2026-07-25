@@ -116,15 +116,5 @@ npm run dev
 
 Visit `http://localhost:5173`
 
-> **Hard constraints met:** No backend, no external APIs, no auth services, no databases. All data is mock/local. Pure React + Vite + TypeScript + Tailwind.
-
 ---
 
-## 🏆 Hackathon Notes
-
-**Frontend Wars 2026** scoring categories:
-
-- **UI/UX Design** — Custom design system, not a template. Warm ivory background, Fraunces display font, makeup-pan swatch aesthetics.
-- **Data Visualization** — Analytics dashboard as the centrepiece; all recharts recolored to brand palette (terracotta, sage, warm sand).
-- **Functionality** — Full onboarding → profile → comparison → analytics → lookbook → booking flow.
-- **Code Quality** — Strong TypeScript types throughout, small reusable components, readable logic ready for live explanation.
