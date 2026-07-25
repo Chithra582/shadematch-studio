@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Check, Sparkles } from 'lucide-react';
 import { SKIN_TONE_PALETTE } from '../data/shades';
 import { useStore } from '../store/useStore';
@@ -184,7 +184,7 @@ export const ProfilePage: React.FC = () => {
 
   // ── Onboarding flow ────────────────────────────────────────────────────────
 
-  const stepVariants = {
+  const stepVariants: Variants = {
     initial: { opacity: 0, x: 24 },
     animate: { opacity: 1, x: 0, transition: { duration: 0.22, ease: 'easeOut' } },
     exit:    { opacity: 0, x: -24, transition: { duration: 0.15, ease: 'easeIn' } },

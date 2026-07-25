@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import type { BeautyProfile } from '../types';
 import { Sparkles, Droplets, Sun, Moon } from 'lucide-react';
 import { SKIN_TONE_PALETTE } from '../data/shades';
@@ -42,12 +42,12 @@ const SKIN_TYPE_LABELS: Record<string, string> = {
 export const ProfileCard: React.FC<ProfileCardProps> = ({ profile }) => {
   const toneData = SKIN_TONE_PALETTE.find((t) => t.id === profile.skinTone);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.08 } },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 12 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' } },
   };

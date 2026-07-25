@@ -17,7 +17,6 @@ export const ArtistsPage: React.FC = () => {
   const [chosenDate, setChosenDate] = useState<string | null>(null);
   const [chosenTime, setChosenTime] = useState<string | null>(null);
   const [confirmed, setConfirmed] = useState(false);
-  const [bookedId, setBookedId] = useState<string | null>(null);
 
   const handleBook = () => {
     if (!selected || !chosenDate || !chosenTime) return;
@@ -32,7 +31,6 @@ export const ArtistsPage: React.FC = () => {
       bookedAt: new Date().toISOString(),
     };
     addAppointment(appt);
-    setBookedId(appt.id);
     setConfirmed(true);
   };
 
@@ -41,7 +39,6 @@ export const ArtistsPage: React.FC = () => {
     setChosenDate(null);
     setChosenTime(null);
     setConfirmed(false);
-    setBookedId(null);
   };
 
   return (
