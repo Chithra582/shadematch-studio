@@ -36,4 +36,3 @@ compliance:
   supervision:
     human_in_the_loop: conditional
     review_cadence: quarterly
-    oversight_contact: "chithra.cse2022@gmail.com"
