@@ -1,0 +1,16 @@
+name: match-shades
+description: >
+  Ranks catalog shades against a user-selected or detected skin tone value
+  and returns the closest matches with undertone and coverage metadata.
+inputs:
+  - name: skin_tone
+    type: string
+    description: User-selected or detected skin tone value
+  - name: undertone_preference
+    type: string
+    description: Optional undertone preference (warm, cool, neutral)
+    required: false
+outputs:
+  - name: matches
+    type: array
+    description: Ranked list of matching shades from the catalog
