@@ -1,0 +1,66 @@
+name: shade-recommender
+description: >
+  Recommends cosmetic shade families for a user based on their skin tone, undertone,
+  finish preference, coverage level, skin type, and look style.
+  Returns up to 4 ranked shade families from the ShadeMatch Studio catalogue.
+
+input_schema:
+  type: object
+  required:
+    - skin_tone
+    - undertone
+    - look_style
+  properties:
+    skin_tone:
+      type: string
+      enum:
+        - porcelain
+        - ivory
+        - sand
+        - beige
+        - honey
+        - caramel
+        - sienna
+        - chestnut
+        - mahogany
+        - espresso
+      description: "User's self-reported skin tone on the 10-point porcelain–espresso scale"
+    undertone:
+      type: string
+      enum: [warm, cool, neutral]
+      description: "User's dominant undertone — warm (golden/peachy), cool (pink/blue), or neutral (both)"
+    look_style:
+      type: string
+      enum: [natural, bold, editorial]
+      description: "User's preferred aesthetic intensity"
+    finish:
+      type: string
+      enum: [matte, satin, dewy]
+      description: "Preferred product finish (optional)"
+    coverage:
+      type: string
+      enum: [sheer, medium, full]
+      description: "Preferred coverage level (optional)"
+    skin_type:
+      type: string
+      enum: [dry, oily, combination, normal, sensitive]
+      description: "User's skin type (optional, used for formula guidance)"
+
+output_schema:
+  type: object
+  properties:
+    recommended_families:
+      type: array
+      items:
+        type: string
+        enum: [nudes, roses, berries, reds, corals, bronzes, mauves, neutrals]
+      maxItems: 4
+      description: "Ordered list of recommended shade families, most to least matched"
+    match_score:
+      type: integer
+      minimum: 0
+      maximum: 100
+      description: "Overall compatibility score (0–100)"
+    rationale:
+      type: string
+      description: "Plain-language explanation of why these families were selected"

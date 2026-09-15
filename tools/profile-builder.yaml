@@ -1,0 +1,84 @@
+name: profile-builder
+description: >
+  Builds a complete BeautyProfile object from user onboarding inputs.
+  Derives recommended shade families, assigns a match score, and returns
+  a persistent profile record suitable for localStorage or any key-value store.
+
+input_schema:
+  type: object
+  required:
+    - name
+    - skin_tone
+    - undertone
+    - finish
+    - coverage
+    - skin_type
+    - look_style
+  properties:
+    name:
+      type: string
+      description: "User's display name"
+      minLength: 2
+      maxLength: 40
+    skin_tone:
+      type: string
+      enum:
+        - porcelain
+        - ivory
+        - sand
+        - beige
+        - honey
+        - caramel
+        - sienna
+        - chestnut
+        - mahogany
+        - espresso
+    undertone:
+      type: string
+      enum: [warm, cool, neutral]
+    finish:
+      type: string
+      enum: [matte, satin, dewy]
+    coverage:
+      type: string
+      enum: [sheer, medium, full]
+    skin_type:
+      type: string
+      enum: [dry, oily, combination, normal, sensitive]
+    look_style:
+      type: string
+      enum: [natural, bold, editorial]
+
+output_schema:
+  type: object
+  properties:
+    id:
+      type: string
+      description: "Unique profile identifier (timestamp-based)"
+    name:
+      type: string
+    skin_tone:
+      type: string
+    undertone:
+      type: string
+    finish:
+      type: string
+    coverage:
+      type: string
+    skin_type:
+      type: string
+    look_style:
+      type: string
+    recommended_families:
+      type: array
+      items:
+        type: string
+      maxItems: 4
+    saved_shade_ids:
+      type: array
+      items:
+        type: string
+      description: "Empty on creation; populated as user saves shades"
+    created_at:
+      type: string
+      format: date-time
