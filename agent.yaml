@@ -8,5 +8,4 @@ description: >
 skills:
   - shade-matching
 tools:
-  - name: match_shades
-    description: Client-side function that ranks catalog shades against a user-selected or detected skin tone value
+  - match_shades
