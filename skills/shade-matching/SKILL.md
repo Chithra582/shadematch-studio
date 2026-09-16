@@ -1,3 +1,8 @@
+---
+name: shade-matching
+description: Matches a user's selected or detected skin tone to compatible foundation and concealer shades using a predefined, rule-based catalog lookup.
+---
+
 # Skill: shade-matching
 
 ## Description
